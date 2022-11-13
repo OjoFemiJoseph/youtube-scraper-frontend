@@ -15,7 +15,8 @@ url = st.secrets["rabbitmq_url"]
             
 st.title("Get a YouTube channel's Stats")
 st.markdown("With this app you can get a Youtube channel stats (each videos likes,dislikes, views etc):")
-st.markdown("Make sure your links are in the format: https://www.youtube.com/c/TheInformationLabCoUK/videos")
+st.markdown("Make sure your links are in the format: https://www.youtube.com/channel/UC7eF1vkUfzHAoku19ZXfLug/videos")
+st.write('Validation is not complete but a little is in place')
 
 label = 'Enter Youtube channel Link'
 title = st.text_input(label, '')
