@@ -42,9 +42,10 @@ def process():
           port=19542,
           password= st.secrets["redis_password"])
 
-          params = pika.URLParameters(url)
-          connection = pika.BlockingConnection(params)
-          channel = connection.channel() # start a channel
+        params = pika.URLParameters(url)
+        
+        connection = pika.BlockingConnection(params)
+        channel = connection.channel() # start a channel
         #check if the key exists 
         value = r.get(title)
         #get data from s3 and send to email
