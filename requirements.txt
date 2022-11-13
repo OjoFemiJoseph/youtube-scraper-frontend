@@ -1,3 +1,4 @@
 pika
 redis
 streamlit
+pillow
