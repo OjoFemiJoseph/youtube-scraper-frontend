@@ -8,6 +8,9 @@ import streamlit as st
 from streamlit.components.v1 import html
 import pika
 import redis
+from PIL import Image
+
+image = Image.open('sample.png')
 
 url = st.secrets["rabbitmq_url"]
 
@@ -77,3 +80,6 @@ but = st.button('Sare lo')
 
 if but:
     process()
+
+
+st.image(image, caption='Sample of the data you\'d be receiving')
