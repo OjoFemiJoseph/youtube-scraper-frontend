@@ -11,14 +11,7 @@ import redis
 
 url = st.secrets["rabbitmq_url"]
 
-r = redis.Redis(
-          host= st.secrets["redis_host"],
-          port=19542,
-          password= st.secrets["redis_password"])
 
-params = pika.URLParameters(url)
-connection = pika.BlockingConnection(params)
-channel = connection.channel() # start a channel
             
 st.title("Get a YouTube channel's Stats")
 st.markdown("With this app you can get a Youtube channel stats (each videos likes,dislikes, views etc):")
@@ -44,7 +37,14 @@ def process():
     print('@' in email)
     
     if title.startswith('https://www.youtube.com/') and '.com' in email and '@' in email:
-        
+        r = redis.Redis(
+          host= st.secrets["redis_host"],
+          port=19542,
+          password= st.secrets["redis_password"])
+
+          params = pika.URLParameters(url)
+          connection = pika.BlockingConnection(params)
+          channel = connection.channel() # start a channel
         #check if the key exists 
         value = r.get(title)
         #get data from s3 and send to email
