@@ -53,12 +53,12 @@ def process():
         #check if the key exists 
         value = r.get(title)
         #get data from s3 and send to email
-        if value:
+        if False: #value:
             st.write('A request has been recently for this same channel, so the data will be sent to you. PS, it might be hours old')
             mailer(email)
         else:
             #set if it doesnt exist and send to queue
-            r.set(title,'s3 address')
+            #r.set(title,'s3 address')
         
        
         
