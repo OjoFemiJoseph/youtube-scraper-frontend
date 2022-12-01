@@ -64,7 +64,7 @@ def process():
         
             # channel.queue_declare(queue='youtube') # Declare a queue
             channel.basic_publish(exchange='',
-                                  routing_key='youtube',
+                                  routing_key='newYoutube',
                                   body=f"[{title},{email}]")
 
             print(" Sent to queue")
@@ -76,7 +76,7 @@ def process():
         
     
     
-but = st.button('Sare lo')
+but = st.button('Submit Request')
 
 if but:
     process()
